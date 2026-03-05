@@ -1,0 +1,163 @@
+import type { Direction } from "./alertsData";
+
+export interface WeighStation {
+  id: string;
+  name: string;
+  highway: string;
+  state: string;
+  milepost: string;
+  direction: Direction;
+  scaleOpen: boolean;
+  ezPassOpen: boolean;
+  prePassActive: boolean;
+  lastUpdated: number; // ms timestamp
+}
+
+const NOW = Date.now();
+
+export const SEED_WEIGH_STATIONS: WeighStation[] = [
+  {
+    id: "ws-1",
+    name: "Laramie Port of Entry",
+    highway: "I-80",
+    state: "WY",
+    milepost: "MM 329",
+    direction: "EB",
+    scaleOpen: true,
+    ezPassOpen: true,
+    prePassActive: true,
+    lastUpdated: NOW - 8 * 60_000,
+  },
+  {
+    id: "ws-2",
+    name: "Lovelock Weigh Station",
+    highway: "I-80",
+    state: "NV",
+    milepost: "MM 178",
+    direction: "WB",
+    scaleOpen: true,
+    ezPassOpen: false,
+    prePassActive: true,
+    lastUpdated: NOW - 22 * 60_000,
+  },
+  {
+    id: "ws-3",
+    name: "Sanders Port of Entry",
+    highway: "I-40",
+    state: "AZ",
+    milepost: "MM 359",
+    direction: "EB",
+    scaleOpen: true,
+    ezPassOpen: true,
+    prePassActive: true,
+    lastUpdated: NOW - 5 * 60_000,
+  },
+  {
+    id: "ws-4",
+    name: "Blythe Port of Entry",
+    highway: "I-10",
+    state: "CA",
+    milepost: "MM 145",
+    direction: "WB",
+    scaleOpen: true,
+    ezPassOpen: true,
+    prePassActive: true,
+    lastUpdated: NOW - 12 * 60_000,
+  },
+  {
+    id: "ws-5",
+    name: "Salina Weigh Station",
+    highway: "I-70",
+    state: "KS",
+    milepost: "MM 210",
+    direction: "EB",
+    scaleOpen: false,
+    ezPassOpen: false,
+    prePassActive: false,
+    lastUpdated: NOW - 45 * 60_000,
+  },
+  {
+    id: "ws-6",
+    name: "Rapid City Weigh Station",
+    highway: "I-90",
+    state: "SD",
+    milepost: "MM 127",
+    direction: "EB",
+    scaleOpen: true,
+    ezPassOpen: true,
+    prePassActive: true,
+    lastUpdated: NOW - 3 * 60_000,
+  },
+  {
+    id: "ws-7",
+    name: "Wildwood Weigh Station",
+    highway: "I-75",
+    state: "FL",
+    milepost: "MM 382",
+    direction: "NB",
+    scaleOpen: true,
+    ezPassOpen: true,
+    prePassActive: true,
+    lastUpdated: NOW - 18 * 60_000,
+  },
+  {
+    id: "ws-8",
+    name: "Perryville Port of Entry",
+    highway: "I-95",
+    state: "MD",
+    milepost: "MM 37",
+    direction: "SB",
+    scaleOpen: true,
+    ezPassOpen: true,
+    prePassActive: true,
+    lastUpdated: NOW - 9 * 60_000,
+  },
+  {
+    id: "ws-9",
+    name: "Booth Ranch Weigh Station",
+    highway: "I-5",
+    state: "OR",
+    milepost: "MM 308",
+    direction: "NB",
+    scaleOpen: false,
+    ezPassOpen: false,
+    prePassActive: false,
+    lastUpdated: NOW - 60 * 60_000,
+  },
+  {
+    id: "ws-10",
+    name: "Nephi Weigh Station",
+    highway: "I-15",
+    state: "UT",
+    milepost: "MM 335",
+    direction: "NB",
+    scaleOpen: true,
+    ezPassOpen: true,
+    prePassActive: true,
+    lastUpdated: NOW - 7 * 60_000,
+  },
+  {
+    id: "ws-11",
+    name: "Rolla Weigh Station",
+    highway: "I-55",
+    state: "MO",
+    milepost: "MM 174",
+    direction: "NB",
+    scaleOpen: true,
+    ezPassOpen: false,
+    prePassActive: true,
+    lastUpdated: NOW - 35 * 60_000,
+  },
+  {
+    id: "ws-12",
+    name: "Brandon Port of Entry",
+    highway: "I-20",
+    state: "MS",
+    milepost: "MM 154",
+    direction: "EB",
+    scaleOpen: true,
+    ezPassOpen: true,
+    prePassActive: true,
+    lastUpdated: NOW - 14 * 60_000,
+  },
+];

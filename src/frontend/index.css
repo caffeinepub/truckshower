@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque[opsz,wdth,wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/assets/fonts/Outfit[wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Background: dark charcoal slate */
+    --background: 0.14 0.008 255;
+    --foreground: 0.93 0.01 255;
+
+    /* Cards: slightly lighter slate */
+    --card: 0.18 0.01 255;
+    --card-foreground: 0.93 0.01 255;
+
+    /* Popover */
+    --popover: 0.2 0.012 255;
+    --popover-foreground: 0.93 0.01 255;
+
+    /* Primary: amber/gold — road sign energy */
+    --primary: 0.78 0.16 75;
+    --primary-foreground: 0.12 0.01 255;
+
+    /* Secondary: mid-slate */
+    --secondary: 0.22 0.012 255;
+    --secondary-foreground: 0.85 0.01 255;
+
+    /* Muted */
+    --muted: 0.22 0.012 255;
+    --muted-foreground: 0.58 0.01 255;
+
+    /* Accent: slightly brighter amber tint */
+    --accent: 0.26 0.015 255;
+    --accent-foreground: 0.78 0.16 75;
+
+    /* Destructive */
+    --destructive: 0.62 0.22 27;
+    --destructive-foreground: 0.98 0 0;
+
+    /* Border */
+    --border: 0.28 0.012 255;
+    --input: 0.28 0.012 255;
+    --ring: 0.78 0.16 75;
+
+    /* Status colors — the main visual language */
+    --status-available: 0.72 0.22 142;
+    --status-partial: 0.78 0.18 72;
+    --status-full: 0.62 0.22 27;
+    --status-available-bg: 0.18 0.06 142;
+    --status-partial-bg: 0.18 0.055 72;
+    --status-full-bg: 0.18 0.055 27;
+
+    /* Chain badge colors */
+    --chain-pilot: 0.68 0.17 245;
+    --chain-flyingj: 0.68 0.17 245;
+    --chain-loves: 0.7 0.2 30;
+    --chain-ta: 0.72 0.18 148;
+    --chain-petro: 0.72 0.18 148;
+    --chain-speedway: 0.72 0.19 60;
+    --chain-kwiktrip: 0.68 0.18 200;
+
+    --chart-1: 0.72 0.22 142;
+    --chart-2: 0.78 0.18 72;
+    --chart-3: 0.62 0.22 27;
+    --chart-4: 0.68 0.17 245;
+    --chart-5: 0.78 0.16 75;
+
+    --sidebar: 0.12 0.008 255;
+    --sidebar-foreground: 0.93 0.01 255;
+    --sidebar-primary: 0.78 0.16 75;
+    --sidebar-primary-foreground: 0.12 0.01 255;
+    --sidebar-accent: 0.22 0.012 255;
+    --sidebar-accent-foreground: 0.85 0.01 255;
+    --sidebar-border: 0.28 0.012 255;
+    --sidebar-ring: 0.78 0.16 75;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Outfit", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .status-available {
+    color: oklch(var(--status-available));
+    background-color: oklch(var(--status-available-bg));
+    border-color: oklch(var(--status-available) / 0.3);
+  }
+
+  .status-partial {
+    color: oklch(var(--status-partial));
+    background-color: oklch(var(--status-partial-bg));
+    border-color: oklch(var(--status-partial) / 0.3);
+  }
+
+  .status-full {
+    color: oklch(var(--status-full));
+    background-color: oklch(var(--status-full-bg));
+    border-color: oklch(var(--status-full) / 0.3);
+  }
+
+  .glow-available {
+    box-shadow: 0 0 12px oklch(var(--status-available) / 0.35);
+  }
+
+  .glow-partial {
+    box-shadow: 0 0 12px oklch(var(--status-partial) / 0.35);
+  }
+
+  .glow-full {
+    box-shadow: 0 0 12px oklch(var(--status-full) / 0.35);
+  }
+
+  .font-display {
+    font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  }
+
+  .gradient-header {
+    background: linear-gradient(135deg, oklch(0.12 0.008 255) 0%, oklch(0.16 0.018 255) 100%);
+    border-bottom: 1px solid oklch(var(--border));
+  }
+
+  .card-shine {
+    background: linear-gradient(135deg, oklch(0.2 0.015 255) 0%, oklch(0.16 0.01 255) 100%);
+  }
+
+  /* Bottom tab bar safe area */
+  .bottom-nav-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  /* Alert type accent bars */
+  .alert-accent-red {
+    border-left: 3px solid oklch(0.62 0.22 27);
+  }
+  .alert-accent-amber {
+    border-left: 3px solid oklch(0.78 0.18 72);
+  }
+  .alert-accent-blue {
+    border-left: 3px solid oklch(0.68 0.17 245);
+  }
+  .alert-accent-gray {
+    border-left: 3px solid oklch(0.45 0.01 255);
+  }
+
+  /* Scale status */
+  .scale-open {
+    color: oklch(0.72 0.22 142);
+    background-color: oklch(0.18 0.06 142);
+    border-color: oklch(0.72 0.22 142 / 0.3);
+  }
+  .scale-closed {
+    color: oklch(0.65 0.01 255);
+    background-color: oklch(0.22 0.008 255);
+    border-color: oklch(0.45 0.01 255 / 0.3);
+  }
+  .ezpass-open {
+    color: oklch(0.72 0.22 142);
+    background-color: oklch(0.18 0.06 142);
+    border-color: oklch(0.72 0.22 142 / 0.3);
+  }
+  .ezpass-closed {
+    color: oklch(0.7 0.2 27);
+    background-color: oklch(0.18 0.06 27);
+    border-color: oklch(0.7 0.2 27 / 0.3);
+  }
+  .prepass-active {
+    color: oklch(0.72 0.22 142);
+    background-color: oklch(0.18 0.06 142);
+    border-color: oklch(0.72 0.22 142 / 0.3);
+  }
+  .prepass-inactive {
+    color: oklch(0.78 0.18 72);
+    background-color: oklch(0.18 0.055 72);
+    border-color: oklch(0.78 0.18 72 / 0.3);
+  }
+
+  /* Cleared alert overlay */
+  .alert-cleared {
+    opacity: 0.45;
+  }
+}
